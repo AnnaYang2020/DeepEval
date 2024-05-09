@@ -9,7 +9,7 @@ A comprehensive benchmark for evaluating Large Multimodal Models' capacities of 
 
 The dataset including all images can be downloaded [in the Releases page of this repo]().
 
-The dataset is stored as four JSONL file.
+The dataset is stored as four JSON file.
 
 The annotation part: []().
 Each example has the following fields:
