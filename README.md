@@ -7,11 +7,10 @@ A comprehensive benchmark for evaluating Large Multimodal Models' capacities of 
 
 ## Dataset
 
-The dataset including all images can be downloaded [in the Releases page of this repo]().
+The dataset is stored as [four JSON file](https://github.com/AnnaYang2020/DeepEval/tree/main/data).
 
-The dataset is stored as four JSON file.
+The annotation part: [Annotation.json](https://github.com/AnnaYang2020/DeepEval/blob/main/data/Annotation.json).
 
-The annotation part: []().
 Each example has the following fields:
 
 - **Image_ID**: a unique ID for each image
@@ -20,7 +19,8 @@ Each example has the following fields:
 - **Answer**: the golden answer for the multiple-choice question
 - **Prompt_{num}**: the {num}-th prompt format of the multiple-choice question
 
-The question part: []().
+The question part: [DeepSemantics_Questions.json](https://github.com/AnnaYang2020/DeepEval/blob/main/data/DeepSemantics_Questions.json), [Descripion_Questions.json](https://github.com/AnnaYang2020/DeepEval/blob/main/data/Descripion_Questions.json), and [Title_Questions.json](https://github.com/AnnaYang2020/DeepEval/blob/main/data/Title_Questions.json).
+
 Each example has the following fields:
 
 - **Image_ID**: a unique ID for each image
