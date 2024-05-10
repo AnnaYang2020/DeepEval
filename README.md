@@ -1,7 +1,7 @@
 # DeepEval
 A comprehensive benchmark for evaluating Large Multimodal Models' capacities of visual deep semantics.
 
-[[Link to paper]](https://arxiv.org/abs/2402.11281) [[Blogpost]]() [[🤗 Dataset]](https://huggingface.co/datasets/BearHere/DeepEval)
+[[Link to paper]](https://arxiv.org/abs/2402.11281) [[Blogpost]]() 
 
 ![Example from the dataset](figure.png)
 
