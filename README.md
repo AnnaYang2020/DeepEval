@@ -1,5 +1,5 @@
 # DeepEval
-DeepEval is a comprehensive benchmark to assess Large Multimodal Models’ capacities of **visual deep semantics**. Our benchmark includes human-annotated dataset and three progressive subtasks: Fine-grained Description Selection, In-depth Title Matching, and Deep Semantics Understanding, to comprehensively evaluate models’ capabilities in understanding deep semantics. By undertaking DeepEval, our goal is to promote research in model development, focusing on a deeper understanding of semantics in visual content.
+**DeepEval is a comprehensive benchmark to assess Large Multimodal Models’ capacities of visual deep semantics**. Our benchmark includes human-annotated dataset and three progressive subtasks: Fine-grained Description Selection, In-depth Title Matching, and Deep Semantics Understanding, to comprehensively evaluate models’ capabilities in understanding deep semantics. By undertaking DeepEval, our goal is to promote research in model development, focusing on a deeper understanding of semantics in visual content.
 
 [[Link to paper]](https://arxiv.org/abs/2402.11281) [[Blogpost]]() 
 
