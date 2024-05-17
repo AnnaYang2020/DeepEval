@@ -39,12 +39,12 @@ def main(args):
     tokenizer, model, image_processor, context_len = load_pretrained_model(args.model_path, args.model_base, model_name, args.load_8bit, args.load_4bit, device=args.device)
 
     # load file
-    file_ = open(arg.file_path, 'r')
+    file_ = open(args.file_path, 'r')
     entities = file_.read().strip().split("\n")
     file_.close()
 
     # save file
-    save_file = open(arg.save_path, 'a')
+    save_file = open(args.save_path, 'a')
 
 
     for entity in tqdm(entities):
@@ -62,7 +62,7 @@ def main(args):
             image_tensor = image_tensor.to(model.device, dtype=torch.float16)
 
         # Prompt
-        inp = triple[arg.prompt].format(triple['options']['A'],triple['options']['B'],triple['options']['C'],triple['options']['D'])
+        inp = triple[args.prompt].format(triple['Options']['A'],triple['Options']['B'],triple['Options']['C'],triple['Options']['D'])
         
         if model.config.mm_use_im_start_end:
             inp = DEFAULT_IM_START_TOKEN + DEFAULT_IMAGE_TOKEN + DEFAULT_IM_END_TOKEN + '\n' + inp
