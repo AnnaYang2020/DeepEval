@@ -12,7 +12,6 @@ from tqdm import tqdm
 import urllib.request
 
 def main(args):
-    #model_path = '/home/yyx/.cache/modelscope/hub/damo/mPLUG-Owl2'
     model_name = get_model_name_from_path(args.model_path)
     tokenizer, model, image_processor, context_len = load_pretrained_model(args.model_path, None, model_name, load_8bit=args.load_8bit, load_4bit=args.load_8bit, device=args.device)
 
@@ -37,7 +36,7 @@ def main(args):
 
         conv = conv_templates["mplug_owl2"].copy()
         roles = conv.roles
-        query =  triple[arg.prompt].format(triple['options']['A'],triple['options']['B'],triple['options']['C'],triple['options']['D'])
+        query =  triple[args.prompt].format(triple['Options']['A'],triple['Options']['B'],triple['Options']['C'],triple['Options']['D'])
         inp = DEFAULT_IMAGE_TOKEN + query
         conv.append_message(conv.roles[0], inp)
         conv.append_message(conv.roles[1], None)
