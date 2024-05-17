@@ -106,7 +106,7 @@ def encode_image(image_path):
 
 def convert_sentence_into_request(sentence,prompt_format):
     triple = json.loads(sentence)
-    prompt = triple[prompt_format].format(triple['options']['A'],triple['options']['B'],triple['options']['C'],triple['options']['D'])
+    prompt = triple[prompt_format].format(triple['Options']['A'],triple['Options']['B'],triple['Options']['C'],triple['Options']['D'])
     # image_path = ".\comic_annotation\{}\{}".format(triple['database'],triple['picture_id'])
     # base64_image = encode_image(image_path)
     url = triple['Url'] #f"data:image/jpeg;base64,{base64_image}"
