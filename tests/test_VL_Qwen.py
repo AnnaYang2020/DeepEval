@@ -26,7 +26,7 @@ def main(args):
         image_url = triple['Url']
 
         # Prompt
-        inp =  triple[arg.prompt].format(triple['options']['A'],triple['options']['B'],triple['options']['C'],triple['options']['D'])
+        inp =  triple[args.prompt].format(triple['Options']['A'],triple['Options']['B'],triple['Options']['C'],triple['Options']['D'])
 
         query = tokenizer.from_list_format([
             {'image': image_url},
