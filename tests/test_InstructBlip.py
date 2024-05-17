@@ -14,12 +14,12 @@ def main(args):
     processor = InstructBlipProcessor.from_pretrained(args.model_path)
 
     # load file
-    file_ = open(arg.file_path, 'r')
+    file_ = open(args.file_path, 'r')
     entities = file_.read().strip().split("\n")
     file_.close()
 
     # save file
-    save_file = open(arg.save_path, 'a')
+    save_file = open(args.save_path, 'a')
 
     for entity in tqdm(entities):
         # load as dict
@@ -31,7 +31,7 @@ def main(args):
         image =  Image.open(triple['Image_ID']).convert('RGB')
 
         # prompt
-        question = triple[arg.prompt].format(triple['options']['A'],triple['options']['B'],triple['options']['C'],triple['options']['D'])
+        question = triple[args.prompt].format(triple['Options']['A'],triple['Options']['B'],triple['Options']['C'],triple['Options']['D'])
 
         # generate
         inputs = processor(images=image, text=prompt, return_tensors="pt", max_length=512, truncation=True).to(args.device)
