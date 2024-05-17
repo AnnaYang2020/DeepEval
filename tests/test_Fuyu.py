@@ -13,7 +13,6 @@ import urllib.request
 def main(args):
     
     print(f"Start loading fuyu\n")
-    #model_path = "/home/lz/model/fuyu-8b"
     
     with torch.no_grad():
         processor = FuyuProcessor.from_pretrained(args.model_path)
@@ -21,19 +20,19 @@ def main(args):
         # model = torch.nn.DataParallel(model,device_ids=[0,1],output_device=0)
 
         # load file
-        file_ = open(arg.file_path, 'r')
+        file_ = open(args.file_path, 'r')
         entities = file_.read().strip().split("\n")
         file_.close()
 
         # save file
-        save_file = open(arg.save_path, 'a')
+        save_file = open(args.save_path, 'a')
 
         for entity in tqdm(entities):
             # load as dict
             triple = json.loads(entity.strip())
 
             # Prompt
-            question = triple[arg.prompt].format(triple['options']['A'],triple['options']['B'],triple['options']['C'],triple['options']['D'])
+            question = triple[args.prompt].format(triple['Options']['A'],triple['Options']['B'],triple['Options']['C'],triple['Options']['D'])
 
             # Image
             image_url = triple['Url']
