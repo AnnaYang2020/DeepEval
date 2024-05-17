@@ -55,7 +55,7 @@ def main(args):
         response = ""
         while ("A\n" not in response) and ("A," not in response) and ("A<" not in response) and ("A." not in response) and ("A)" not in response) and ("B\n" not in response) and ("B," not in response) and ("B<" not in response) and ("B." not in response) and ("B)" not in response) and ("C\n" not in response) and ("C," not in response) and ("C<" not in response) and ("C." not in response) and ("C)" not in response) and ("D\n" not in response) and ("D," not in response) and ("D<" not in response) and ("D." not in response) and ("D)" not in response):
             with torch.no_grad():
-                prom = triple[args.prompt].format(triple['options']['A'],triple['options']['B'],triple['options']['C'],triple['options']['D'])
+                prom = triple[args.prompt].format(triple['Options']['A'],triple['Options']['B'],triple['Options']['C'],triple['Options']['D'])
                 response, history, cache_image = chat(
                     image_url, 
                     model, 
