@@ -1,4 +1,4 @@
-# python Test_LLaVA.py --model-path /mnt/data/plm/llava-v1.5-13b --load-8bit --device cuda:5 --file-path ./data/DeepSemantics_Questions.json --save-file ./result/DeepSemantics_Prompt_1_LLaVA-13B.json --prompt Prompt_1
+# python test_LLaVA.py --model-path /mnt/data/plm/llava-v1.5-13b --load-8bit --device cuda:5 --file-path ./data/DeepSemantics_Questions.json --save-path ./result/DeepSemantics_Prompt_1_LLaVA-13B.json --prompt Prompt_1
 
 import argparse
 import torch
@@ -109,6 +109,7 @@ def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--model-path", type=str, default=None)
+    parser.add_argument("--model-base", type=str, default=None)
     parser.add_argument("--file-path", type=str, default='./data/DeepSemantics_Questions.json')
     parser.add_argument("--save-path", type=str, default='./result/DeepSemantics_Prompt_1_LLaVA-13B.json')
     parser.add_argument("--prompt", type=str, default='Prompt_1')
