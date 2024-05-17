@@ -14,7 +14,7 @@ from tqdm import tqdm
 def main(args):
     # load model
     model, model_args = CogVLMModel.from_pretrained(
-        args.model_path,#"/mnt/data/yyx/plm/cogvlm-chat",
+        args.model_path,
         args=argparse.Namespace(
             deepspeed=None,
             local_rank=0,
@@ -30,15 +30,13 @@ def main(args):
         ), overwrite_args={'model_parallel_size': args.world_size} if args.world_size != 1 else {})
 
     model = model.eval()
-    assert world_size == get_model_parallel_world_size(), "world size must equal to model parallel size for cli_demo!"
+    assert args.world_size == get_model_parallel_world_size(), "world size must equal to model parallel size for cli_demo!"
 
-
-    tokenizer = llama2_tokenizer(args.model_base, signal_type="chat") #"/mnt/data/yyx/plm/lmsys_vicuna-7b-v1.5"
+    tokenizer = llama2_tokenizer(args.model_base, signal_type="chat")
     image_processor = get_image_processor(model_args.eva_args["image_size"][0])
     model.add_mixin('auto-regressive', CachedAutoregressiveMixin())
     text_processor_infer = llama2_text_processor_inference(tokenizer, None, model.image_length)
 
-    #file_path = "/home/yyx/comic_annotation/000_deepmeaning_options.json"
     file_ = open(args.file_path, 'r')
     entities = file_.read().strip().split("\n")
     file_.close()
@@ -57,7 +55,7 @@ def main(args):
         response = ""
         while ("A\n" not in response) and ("A," not in response) and ("A<" not in response) and ("A." not in response) and ("A)" not in response) and ("B\n" not in response) and ("B," not in response) and ("B<" not in response) and ("B." not in response) and ("B)" not in response) and ("C\n" not in response) and ("C," not in response) and ("C<" not in response) and ("C." not in response) and ("C)" not in response) and ("D\n" not in response) and ("D," not in response) and ("D<" not in response) and ("D." not in response) and ("D)" not in response):
             with torch.no_grad():
-                prom = triple[arg.prompt].format(triple['options']['A'],triple['options']['B'],triple['options']['C'],triple['options']['D'])
+                prom = triple[args.prompt].format(triple['options']['A'],triple['options']['B'],triple['options']['C'],triple['options']['D'])
                 response, history, cache_image = chat(
                     image_url, 
                     model, 
@@ -81,8 +79,6 @@ def main(args):
         save_file.write(sen_dict + '\n')       
 
     save_file.close()
-
-save_file.close()
 
 
 if __name__ == "__main__":
