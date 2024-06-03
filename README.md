@@ -3,7 +3,7 @@
 
 **⭐⭐⭐ Our paper for DeepEval has been accepted by Findings of ACL 2024. ⭐⭐⭐**
 
-[[Paper]](https://arxiv.org/abs/2402.11281) [[Blogpost]](https://sites.google.com/view/deepeval/%E9%A6%96%E9%A0%81) [[Leaderboard]](https://github.com/AnnaYang2020/DeepEval?tab=readme-ov-file#leaderboard-)
+[[Paper]](https://arxiv.org/abs/2402.11281) [[Blogpost]](https://sites.google.com/view/deepeval/%E9%A6%96%E9%A0%81)
 
 ![Example from the dataset](figure.png)
 
